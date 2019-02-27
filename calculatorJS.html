@@ -1,0 +1,161 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Calculatrice JS</title>
+
+    <style>
+        html, body{
+            font-family: "Catamaran", sans-serif;
+        }
+        .container {
+            align-self:center;
+        }
+
+        .calculator {
+            border-color: #808080;
+            width: 260px;
+            height: 430px;
+            border: 0px;
+            border-style: none;
+            background-color: #123456;
+            border-radius: 30px;
+            box-shadow: 0 4px #999;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .calc-button {
+            border-color: #808080;
+            border: medium;
+            text-align: center;
+            width: 60px;
+            height: 40px;
+            color: #ff006e;
+            background-color: #a8e0e7;
+            font-size: 24px;
+            border-radius: 15px;
+            box-shadow: 0 4px #999;
+        }
+
+        .is-btn {
+            background-color: #ed8439;
+        }
+
+        .calc-text {
+            border-radius: 15px;
+            text-align: center;
+            width: 252px;
+            height: 40px;
+            color: #ff007d;
+            font-size: 22px;
+        }
+        .is-text {
+            background-color: #fae4e4;
+            text-align: right;
+            font-weight: bold;
+            color: #003366;
+            font-size: 18px;
+        }
+    </style>
+    <script type="text/javascript">
+
+function getText(oneChar) {
+    document.getElementById("txtText").value += oneChar;
+}
+function Erase() {
+    document.getElementById("txtText").value = "";
+}
+
+function EraseLast() {
+    var t = document.getElementById("txtText").value;
+    document.getElementById("txtText").value = t.substring(0, t.length - 1);
+}
+
+function Equal() {
+    var t = document.getElementById("txtText").value;
+    if (t) {
+        document.getElementById("txtText").value = eval(t);
+    }
+
+}
+    </script>
+
+</head>
+<body> 
+    <div class="container" align="center">
+        <table class="calculator">
+            <tr>
+                <td colspan="4" class="calc-text is-head">
+                    Calculator JS
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <input type="text" id="txtText" class="calc-text is-text" autocomplete="off" disabled="disabled" />
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td><input type="button" class="calc-button is-btn" id="btnErase" name="btnErase" value="C" onclick="Erase ()" /></td>
+                <td><input type="button" class="calc-button is-btn" id="btnEraseLast" name="btnEraseLast" value="<" onclick="EraseLast()" /></td>
+                <td colspan="2">
+                    <input type="button" class="calc-button is-btn" id="btnEqual" name="btnEqual" value="=" style="width:120px;" onclick="Equal()" />
+                </td>
+
+            </tr>
+            <tr>
+                <td><input type="button" class="calc-button" id="btn7" name="btn7" value="7" onclick="getText('7')" /></td>
+                <td><input type="button" class="calc-button" id="btn8" name="btn8" value="8" onclick="getText('8')" /></td>
+                <td><input type="button" class="calc-button" id="btn9" name="btn9" value="9" onclick="getText('9')" /></td>
+                <td><input type="button" class="calc-button is-btn" id="btnDiv" name="btnDiv" value="/" onclick="getText('/')" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="calc-button" id="btn4" name="btn4" value="4" onclick="getText('4')" />
+                <td>
+                    <input type="button" class="calc-button" id="btn5" name="btn5" value="5" onclick="getText('5')" />
+                </td>
+                <td>
+                    <input type="button" class="calc-button" id="btn6" name="btn6" value="6" onclick="getText('6')" />
+                </td>
+                <td>
+                    <input type="button" class="calc-button is-btn" id="btnMul" name="btnMul" value="*" onclick="getText('*')" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" class="calc-button" id="btn1" name="btn1" value="1" onclick="getText('1')" />
+                </td>
+                <td>
+                    <input type="button" class="calc-button" id="btn2" name="btn2" value="2" onclick="getText('2')" />
+                </td>
+                <td>
+                    <input type="button" class="calc-button" id="btn3" name="btn3" value="3" onclick="getText('3')" />
+                </td>
+                <td>
+                    <input type="button" class="calc-button is-btn" id="btnSub" name="btnSub" value="-" onclick="getText('-')" />
+                </td>
+            </tr>
+            <tr>
+
+                <td colspan="2">
+                    <input type="button" class="calc-button" id="btn0" name="btn0" value="0" style="width:120px;" onclick="getText('0')" />
+                </td>
+                <td>
+                    <input type="button" class="calc-button" id="btnVerg" name="btnVerg" value="." onclick="getText('.')" />
+                </td>
+                <td>
+                    <input type="button" class="calc-button is-btn" id="btnAdd" name="btnAdd" value="+" onclick="getText('+')" />
+                </td>
+            </tr>
+
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>
